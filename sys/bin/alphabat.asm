@@ -7,8 +7,8 @@ int 0x10
 
 loop:
         inc al              ; increment for al value
-        cmp al, 'Z' + 1     ; compare if al == Z + 1
-        je exit             ; if condition true exit
+        cmp al, 93          ; compare if al == Z + 1
+        je exit             ; if condition true exit (==)
         int 0x10
         jmp loop            ; jump to the loop
 
