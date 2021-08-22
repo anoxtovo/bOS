@@ -6,6 +6,14 @@ clearscreen:
     mov dx, 0x184f
     int 0x10
 
+setColors:
+    mov ah, 0x06    ;Function 0x06 = Scroll up function
+    xor cx, cx      ;From upper left corner
+    mov bx, 0xFFE0   ;Set colors (white on blue)
+    mov dx, 0x184F  ;To lower right corner
+    int 0x10         ;Call the bios video interrupt
+
+
 [org 0x7c00]
 mov ah, 0x0e
 mov bx, stringlabal
