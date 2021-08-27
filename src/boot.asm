@@ -1,3 +1,7 @@
+; Author    : Thumula Basura Suraweera
+; CodeName  : project bOS
+; version   : build 2101D
+
 ; clear screen
 clearScreen:
     mov ax, 0x07
@@ -6,6 +10,7 @@ clearScreen:
     mov dx, 0x184f
     int 0x10
 
+; change background colors
 setColors:
     mov ah, 0x06    ;Function 0x06 = Scroll up function
     xor cx, cx      ;From upper left corner
@@ -27,14 +32,12 @@ bosIntro:
     jmp bosIntro
 
 end:
-    
-jmp $
+    jmp $
 
 stringLabal:
     db "Basic Operating System - bOS [v0.1]", 0
 
 ; Boot Loader 512 bytes-long
 ; ** Added boot signature bits 0x55 0xaa
-
 times 510-($-$$) db 0
 db 0x55, 0xaa
